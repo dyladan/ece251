@@ -1,0 +1,5 @@
+1.) The program counter points to the next instruction to be executed.
+2.) Before JSR is executed the program counter points to it at $1263
+3.) After JSR is executed the program counter points to $126F
+4.) The return address is the last thing on the stack with the high half of the 16 bit value as the top item
+5.) The difference between JSR and BRA is that BRA does not save a return address on the stack.

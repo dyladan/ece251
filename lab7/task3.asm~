@@ -1,0 +1,25 @@
+CR = $0D
+LF = $0A
+printf = $EE88
+getchar = $EE84
+tempchar = $00
+
+Prompt1: .asciz "Please Enter a Temperature in Farenheit"
+	.byte CR,LF,0
+
+Prompt2: .asciz "Want to Continue? (y/n)"
+	.bye CR,LF,0
+
+Prompt3: .asciz "Current Temperature"
+	.byte CR,LF,0
+
+.text
+_main::
+
+lds	#$3c00
+
+
+	ldy	#0
+	ldd	#Prompt
+	jsr 	[printf,y]	
+	tempchar = 

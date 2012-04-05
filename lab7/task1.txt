@@ -1,0 +1,73 @@
+arr	= #13
+arcnt	= #12
+buf	= #3
+inOrder	= #2
+inner	= #1
+iteration = #0
+true	= #1
+false	= #0
+n	= #30
+local	= #4
+
+org	$1000
+Array1: .byte
+org	$1020
+Array2:
+org	$1100
+Array3:
+org	$1120
+Array4:
+
+
+
+org	$3c00
+start:
+lds	#$3c00
+ldx	#Array1
+pshx
+ldaa	#n
+psha
+jsr	bubble
+leas	3,sp
+swi
+
+bubble:
+pshd
+pshy
+pshx
+leas	-local,sp
+ldaa	arcnt,sp
+deca
+staa	iteration,sp
+ploop:
+ldaa	#true
+staa	inOrder,sp
+ldx	arr,sp
+ldaa	iteratoin,sp
+staa	inner,sp
+cloop:
+ldaa	0,x
+cmpa	1,x
+bls	loopst
+staa	buf,sp
+ldaa	1,x
+staa	0,x
+ldaa	buf,sp
+staa	1,x
+ldaa	#false
+staa	inOrder,sp
+looptst:
+inx
+dec	inner,sp
+bne	cloop
+tst	inOrder,sp
+bne	done
+dec	iteration,sp
+bne	ploop
+done:
+leas	local,sp
+pulx
+puly
+puld
+rts
+end
