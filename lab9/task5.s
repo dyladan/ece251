@@ -12,7 +12,6 @@ _main::
 movb #$00,DDRA
 movb #$FF,DDRB
 
-
 repeatloop:
 
 ldaa PORTA
@@ -21,11 +20,9 @@ jsr time_delay ;start delay
 jsr or_logic ;start the NOR logic
 jsr display
 
-
 bra repeatloop ;repeat until user interrupt
 
 swi
-
 
 or_logic:
 anda #$F0
@@ -37,8 +34,6 @@ lsra
 lsra
 oraa temp ;or a with b
 coma   ;take the compliment at A
-
-
 
 time_delay:
 	ldaa  #250	; 1 E cycles

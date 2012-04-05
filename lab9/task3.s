@@ -1,11 +1,7 @@
-
-
-
 PORTA   =  $00
 PORTB   =  $01
 DDRA    =  $02
 DDRB    =  $03
-
 
 .text
 _main::
